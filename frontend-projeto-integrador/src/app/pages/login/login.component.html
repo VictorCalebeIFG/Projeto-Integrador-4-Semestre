@@ -1,0 +1,17 @@
+<div class = login-container>
+    <div class="login-ilustration">
+        <img src="LoginPage.png" alt="" srcset="">
+    </div>
+    <div class="login-form">
+        <img src="logo_1.png" alt="" srcset="">
+        <form (submit)="login(); $event.preventDefault()">
+            <label for="">Usuário:</label>
+            <input type="text" placeholder="" [(ngModel)]="username" name="username" required />
+            <label for="">Senha:</label>
+            <input type="password" placeholder="" [(ngModel)]="password" name="password" required />
+            <button type="submit">Entrar</button>
+        </form>
+        <a href="http://127.0.0.1:5500/frontend-cadastro/cadastro/cadastro.html">Não possui usuário? Clique aqui para cadastrar</a>
+        <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    </div>
+</div>

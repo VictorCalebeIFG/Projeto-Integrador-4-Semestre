@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    z-index: 9999;
+  }
+
+.searchbar {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 10px; /* Espaço entre os itens */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 15px;
+    height: 5vh;
+  }
+  
+  .searchbar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .searchbar button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .searchbar button:hover {
+    background-color: #0056b3;
+  }
+
+  .under-bar{
+    margin-top: 15vh;
+    display: flex;
+  }
+
+  .profile-me{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+  }
+
+  .profile-me {
+    display: flex;
+    align-items: center;  /* Centraliza verticalmente os itens */
+    justify-content: center;
+    width: fit-content; /* Ajusta a largura ao conteúdo */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 15%;
+  }
+
+  .profile-me p{
+    margin: 0px;
+    padding: 10px;
+    background-color: #ccc;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .profile-me img{
+    margin: 20px;
+  }
+
+  .post-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }

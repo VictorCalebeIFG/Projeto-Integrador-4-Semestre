@@ -1,0 +1,13 @@
+<div class="upload-container">
+    <h1>Upload de Imagem para Imgur</h1>
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagem de visualização" height="300px" width="auto" id="img-preview">
+    <p>
+      <input type="file" (change)="onImageSelected($event)" accept="image/*" required>
+      <button (click)="uploadImage()">Upload</button>
+    </p>
+    <p>
+      URL da imagem: <input type="text" [value]="uploadedImgUrl" readonly>
+    </p>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </div>
+  

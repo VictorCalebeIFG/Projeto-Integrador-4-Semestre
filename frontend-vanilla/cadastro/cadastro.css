@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+}
+
+.login-ilustration {
+    flex: 0.5;
+    /* 30% da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    /* Cor de fundo opcional */
+    overflow: hidden;
+}
+
+.login-ilustration img {
+    width: 100%;
+    /* Ajusta a largura para 100% da div */
+    height: 100%;
+    /* Ajusta a altura para 100% da div */
+    object-fit: cover;
+    /* Faz a imagem cobrir a área sem distorcer */
+}
+
+.login-form {
+    flex: 0.7;
+    /* 70% da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}
+
+.login-form img {
+    width: 250px;
+
+}
+
+.login-form button {
+    width: 100px;
+    margin: 30px;
+    height: 30px;
+    border: 0;
+    background-color: bisque;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.my-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 400px;
+    align-items: center;
+    margin-top: 200px;
+    margin-bottom: 150px;
+
+}
+
+input {
+    margin: 10px;
+    width: 200px;
+    height: 40px;
+    padding: 7px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    margin: 15px;
+}
+
+
+.login-form label {
+    text-align: start;
+    width: 200px;
+}
+
+.cad {
+    font-size: smaller;
+    text-align: center;
+}
+
+a {
+    font-size: smaller;
+    cursor: pointer;
+}
+
+#imageInput {
+    display: none;
+    /* Ocultar o campo input */
+}
+
+.file-upload-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-upload-label img {
+    width: 50px;
+    /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+    border-radius: 50%;
+}
+
+.my-form img:hover{
+    margin-top: 0px;
+    opacity: 0.5;
+}
