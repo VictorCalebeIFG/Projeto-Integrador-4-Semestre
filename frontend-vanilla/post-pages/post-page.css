@@ -110,19 +110,53 @@
     
   }
 
-  .postimg > img{
-    width: 50vh;
+  .postimg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    margin-top: 30px;
+    border-radius: 10px;
+    
   }
 
+  .postimg > img{
+    width: 50vh;
+
+  } 
   .profileimgpost{
     display: flex;
     align-items: center;
+    border-radius: 10px;
+    width: 650px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   }
   .profileimgpost img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin-right: 30px;
   }
   .postunit{
-    border: #ccc solid ;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-radius: 25px;
+  }
+
+  .buttonspost{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+  }
+
+  .add-post{
+    margin-bottom: 50px;
   }

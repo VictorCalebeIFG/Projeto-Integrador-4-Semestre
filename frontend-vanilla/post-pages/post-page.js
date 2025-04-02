@@ -43,7 +43,10 @@ function create_post(post) {
                         <div class='postimg'>
                             <img src="${post.imagepath}" alt="${post.username}">
                         </div>
-                        <p>${post.likes} likes</p>
+                        <div class='buttonspost'>
+                            <img src="../Assets/barra_post.png" alt="" srcset="" style="width: 250px;">
+                            <p> ❤️ ${post.likes}</p>
+                        </div>
                     </div>
                 `;
                 resolve(newDiv);  // Resolva a Promise com o novo post
