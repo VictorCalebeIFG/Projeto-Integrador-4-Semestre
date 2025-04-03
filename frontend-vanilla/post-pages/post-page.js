@@ -29,7 +29,7 @@ function create_post(post) {
     return new Promise((resolve, reject) => {
         var xhrUserImg = new XMLHttpRequest();
         xhrUserImg.open('GET', "http://localhost:8080/usuarios/" + post.username);
-        
+
         xhrUserImg.onload = function () {
             if (xhrUserImg.status === 200) {
                 var userimg = JSON.parse(xhrUserImg.responseText);
@@ -37,11 +37,11 @@ function create_post(post) {
                 newDiv.innerHTML = `
                     <div class='postunit'>
                         <div class='profileimgpost'> 
-                            <img src="${userimg.imgPath}" alt="${post.username}"> 
+                            <img src="${userimg.imgPath}" alt="${post.username}" referrerpolicy="no-referrer"> 
                             <h3>${post.username}</h3> 
                         </div>
                         <div class='postimg'>
-                            <img src="${post.imagepath}" alt="${post.username}">
+                            <img src="${post.imagepath}" alt="${post.username}"  referrerpolicy="no-referrer" >
                         </div>
                         <div class='buttonspost'>
                             <img src="../Assets/barra_post.png" alt="" srcset="" style="width: 250px;">
@@ -54,7 +54,7 @@ function create_post(post) {
                 reject('Erro ao carregar imagem do usuário');
             }
         };
-        
+
         xhrUserImg.onerror = function () {
             reject('Erro na requisição para imagem do usuário');
         };
@@ -82,3 +82,64 @@ xhrPosts.onload = function () {
 };
 
 xhrPosts.send();
+
+
+document.getElementById('postarButton').addEventListener('click', function (event) {
+    event.preventDefault(); // Impede o comportamento padrão do botão
+
+    var imageInput = document.getElementById('imageInput').files[0];
+    console.log(imageInput)
+    if (imageInput) {
+        var formData = new FormData();
+        formData.append('image', imageInput);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://api.imgur.com/3/image', true);
+        xhr.setRequestHeader('Authorization', 'Client-ID 8631a103f44b899'); // Substitua pelo seu Client ID
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                // document.getElementById('img-preview').setAttribute("src", response.data.link);
+
+                const params = new URLSearchParams(window.location.search);
+                const username = params.get('username');
+
+                var apirequest3 = new XMLHttpRequest
+                var apirul = 'http://localhost:8080/posts'
+                apirequest3.open('POST', apirul)
+                apirequest3.setRequestHeader('Content-Type', 'application/json')
+                var post2 = {
+                    "username": username,
+                    "titulo": "Post",
+                    "imagepath": response.data.link,
+                    "likes": 0
+                }
+                apirequest3.send(JSON.stringify(post2))
+
+                // var springapi = new XMLHttpRequest();
+                // var springurl = "http://localhost:8080/usuarios/post"
+
+                // var userCad = {
+                //     "username":document.getElementById("username").value,
+                //     "password": document.getElementById("password").value,
+                //     "imgPath": response.data.link
+                // }
+
+                // springapi.open("POST",springurl)
+                // springapi.setRequestHeader("Content-Type", "application/json");
+
+                // springapi.send(JSON.stringify(userCad));
+
+            } else {
+                document.getElementById('uploadedImgUrl').value = 'Erro ao fazer upload da imagem.';
+            }
+        };
+        xhr.onerror = function () {
+            document.getElementById('uploadedImgUrl').value = 'Erro ao fazer upload da imagem. Não foi possível conectar ao servidor.';
+        };
+        xhr.send(formData);
+    } else {
+        alert('Por favor, selecione uma imagem.');
+    }
+});
