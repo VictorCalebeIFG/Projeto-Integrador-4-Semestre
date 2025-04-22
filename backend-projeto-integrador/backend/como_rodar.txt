@@ -1,0 +1,3 @@
+rode nesse caminho:
+
+mvnw.cmd spring-boot:run
