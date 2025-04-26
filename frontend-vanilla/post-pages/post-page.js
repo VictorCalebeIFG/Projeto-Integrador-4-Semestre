@@ -44,7 +44,7 @@ function create_post(post) {
                             <img src="${post.imagepath}" alt="${post.username}"  referrerpolicy="no-referrer" >
                         </div>
                         <div class='buttonspost'>
-                            <img src="../Assets/barra_post.png" alt="" srcset="" style="width: 250px;">
+                            <img src="../Assets/barra-post.png" alt="" srcset="" style="width: 250px;">
                             <p> ❤️ ${post.likes}</p>
                         </div>
                     </div>
@@ -116,20 +116,6 @@ document.getElementById('postarButton').addEventListener('click', function (even
                     "likes": 0
                 }
                 apirequest3.send(JSON.stringify(post2))
-
-                // var springapi = new XMLHttpRequest();
-                // var springurl = "http://localhost:8080/usuarios/post"
-
-                // var userCad = {
-                //     "username":document.getElementById("username").value,
-                //     "password": document.getElementById("password").value,
-                //     "imgPath": response.data.link
-                // }
-
-                // springapi.open("POST",springurl)
-                // springapi.setRequestHeader("Content-Type", "application/json");
-
-                // springapi.send(JSON.stringify(userCad));
 
             } else {
                 document.getElementById('uploadedImgUrl').value = 'Erro ao fazer upload da imagem.';

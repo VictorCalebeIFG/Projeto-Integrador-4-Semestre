@@ -19,7 +19,7 @@ apirequest3.setRequestHeader('Content-Type', 'application/json')
 var post2 = {
     "username": "usuario123",
     "titulo": "Meu Segundo Post",
-    "imagepath": "https://i.pinimg.com/736x/4f/75/ee/4f75ee8f361442816c72ca356808432d.jpg",
+    "imagepath": "https://i.pinimg.com/736x/8e/ba/37/8eba37b2286bcf9a2bf4428d7cc1f7e6.jpg",
     "likes": 0
 }
 apirequest3.send(JSON.stringify(post2))
@@ -55,7 +55,7 @@ apirequest4.setRequestHeader('Content-Type', 'application/json')
 var user2 = {
     "username":"usuario123",
     "password": "123",
-    "imgPath": "https://i.pinimg.com/736x/a2/36/85/a23685050ebfdad9d12c1422273bf7fa.jpg"
+    "imgPath": "https://i.pinimg.com/736x/7a/1a/02/7a1a02575b8ec249b387376418126682.jpg"
 }
 
 apirequest4.send(JSON.stringify(user2))
