@@ -1,0 +1,59 @@
+<div class="rootC">
+    <div class="leftDiv">
+        <img src="leftimg.jpg" alt="">
+    </div>
+
+    <div class="rightDiv">
+        <div class="rightContent">
+            <img src="LogoOutline.png" alt="Logo" style="width: 300px; height: auto; margin-bottom: 20px;">
+        
+            <form (ngSubmit)="onSubmit()">
+                <p>User:</p>
+                <input type="text" [(ngModel)]="username" name="username" placeholder="Username" required>
+                <br>
+                <p>Senha:</p>
+                <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required>
+                <div class="afterCad">
+                    <!-- LABEL COM IMAGEM (clica e ativa o input escondido) -->
+                    <label for="fileInput" style="cursor: pointer;" class = 'choseImage'>
+                      <img 
+                        *ngIf="previewUrl; else defaultImage" 
+                        [src]="previewUrl" 
+                        alt="Imagem selecionada"
+                        style="width: 80px;height: 80px ;border-radius: 50%; margin-bottom: 10px;" 
+                         
+                      />
+                      <ng-template #defaultImage>
+                        <img 
+                          src="setImage.png" 
+                          alt="Clique para selecionar imagem" 
+                          style="max-width: 80px" 
+                        />
+                      </ng-template>
+                    </label>
+                  
+                    <!-- INPUT ESCONDIDO -->
+                    <input 
+                      type="file" 
+                      id="fileInput" 
+                      (change)="onFileSelected($event)" 
+                      required 
+                      style="display: none;" 
+                    />
+                  
+                    <!-- Botões -->
+                    <button type="submit">Cadastrar</button>
+                    <button *ngIf="cadastroSucesso" (click)="irParaLogin()">Ir para login</button>
+                  </div>
+                  
+                
+            </form>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+

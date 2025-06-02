@@ -4,50 +4,54 @@ import jakarta.persistence.*;
 
 @Entity
 public class Post {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = true)
     private String username;
 
-    @Column(nullable = true)
     private String titulo;
 
-    @Column(nullable = true)
-    private String imagepath;
+    @Lob
+    @Column(columnDefinition = "BYTEA") // Para PostgreSQL. Use `BLOB` se estiver usando MySQL
+    private byte[] imagepath;
 
-    @Column(nullable = true)
     private int likes = 0;
+
 
     public Post() {}
 
-    public Post(String titulo, String imagepath, String username) {
+    public Post(String titulo, byte[] imagepath, String username) {
         this.titulo = titulo;
         this.imagepath = imagepath;
         this.username = username;
     }
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public String getTitulo() {
-        return this.titulo;
+        return titulo;
     }
 
-
-    public String getImagepath() {
-        return this.imagepath;
+    public byte[] getImagepath() {
+        return imagepath;
     }
 
     public int getLikes() {
-        return this.likes;
+        return likes;
     }
 
-    public String getUsername(){
-        return this.username;
+    public String getUsername() {
+        return username;
     }
 
+
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
 
 }

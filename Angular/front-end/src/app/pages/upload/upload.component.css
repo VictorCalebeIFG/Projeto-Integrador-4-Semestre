@@ -1,0 +1,44 @@
+.file-input {
+    display: none; /* Oculta o input padrão */
+}
+
+.file-label img {
+    cursor: pointer;
+    width: 80px; /* ajuste conforme necessário */
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+}
+
+.file-label img:hover {
+    transform: scale(1.05);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form button {
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(49, 56, 91);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form input{
+    width: 200px;
+    height: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+

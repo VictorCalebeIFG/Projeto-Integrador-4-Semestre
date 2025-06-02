@@ -1,0 +1,134 @@
+.dropdown-container {
+    position: absolute;
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 450px;
+    margin-left: -100px;
+    z-index: 100;
+    border-radius: 10px;
+  }
+
+#userimg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#imgLogo{
+    width: 60px;
+}
+
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #03111f;
+    border-radius: 20px;
+    
+}
+
+.rightBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.rightBar button{
+
+    background-color: #0b3661;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    
+}
+
+.myPost{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 colunas */
+    gap: 16px; /* espaçamento entre os itens */
+    margin: 100px;
+    margin-top: 10px;
+    
+}
+
+.myPost img{
+    width: 300px;
+}
+
+.myPost h4{
+    color: aliceblue;
+}
+
+.imgContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    border: #0b3661 solid 1px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.imageDelete{
+    display: flex;
+    justify-content: center;
+}
+
+.imageDelete button{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    margin-top: 20px;
+}
+
+.imageDelete img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+}
+
+.senha-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: #0b3661 solid 1px;
+    border-radius: 20px;
+    padding: 20px;
+    color: aliceblue;
+    margin-top: 50px;
+}
+
+.senha-container input{
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.senha-container button{
+    background-color: #0b3661;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+.bigContainer{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}

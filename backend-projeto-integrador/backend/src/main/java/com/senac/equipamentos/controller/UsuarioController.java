@@ -1,10 +1,11 @@
 package com.senac.equipamentos.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.multipart.MultipartFile;
 
 import com.senac.equipamentos.model.Usuario;
 import com.senac.equipamentos.service.UsuarioService;
@@ -12,13 +13,12 @@ import com.senac.equipamentos.repository.UsuarioRepository;
 
 @RestController
 @RequestMapping("/usuarios")
-@CrossOrigin(origins = "*") // Permite acesso do Angular
+@CrossOrigin(origins = "*")
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
     private final UsuarioRepository usuarioRepository;
 
-    // 🔥 Construtor único para injeção correta das dependências
     public UsuarioController(UsuarioService usuarioService, UsuarioRepository usuarioRepository) {
         this.usuarioService = usuarioService;
         this.usuarioRepository = usuarioRepository;
@@ -31,19 +31,20 @@ public class UsuarioController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
-        Usuario novoUsuario = usuarioRepository.save(usuario);
-        return ResponseEntity.ok(novoUsuario);
-    }
+    public ResponseEntity<Usuario> cadastrarUsuario(
+            @RequestParam("username") String username,
+            @RequestParam("password") String password,
+            @RequestParam(value = "image", required = false) MultipartFile image
+    ) throws IOException {
 
-    @PutMapping("/{username}/imagem")
-    public ResponseEntity<String> atualizarImagem(@PathVariable String username, @RequestParam String imgPath) {
-        boolean atualizado = usuarioService.atualizarImagem(username, imgPath);
-        if (atualizado) {
-            return ResponseEntity.ok("Imagem de perfil atualizada com sucesso.");
-        } else {
-            return ResponseEntity.notFound().build();
+        byte[] imgBytes = null;
+        if (image != null && !image.isEmpty()) {
+            imgBytes = image.getBytes();
         }
+
+        Usuario novoUsuario = new Usuario(username, password, imgBytes);
+        Usuario salvo = usuarioRepository.save(novoUsuario);
+        return ResponseEntity.ok(salvo);
     }
 
     @GetMapping
@@ -53,18 +54,27 @@ public class UsuarioController {
 
     @GetMapping("/{username}")
     public Usuario getUserByUserName(@PathVariable String username) {
-        // Inicializa o usuário
-        Usuario user = null;
-
-        // Itera sobre todos os usuários e verifica se o username corresponde
         for (Usuario usuario : usuarioRepository.findAll()) {
             if (usuario.getUsername().equals(username)) {
-                user = usuario;  // Atribui o usuário correspondente
-                break;  // Sai do loop assim que encontrar o usuário
+                return usuario;
             }
         }
-
-        // Retorna o usuário encontrado ou null caso não encontre
-        return user;
+        return null;
     }
+
+    @PutMapping("/atualizar-senha")
+    public ResponseEntity<String> atualizarSenha(
+        @RequestParam String username,
+        @RequestParam String novaSenha) {
+
+    Usuario usuario = usuarioRepository.findByUsername(username);
+    if (usuario != null) {
+        usuario.setPassword(novaSenha);
+        usuarioRepository.save(usuario);
+        return ResponseEntity.ok("Senha atualizada com sucesso.");
+    } else {
+        return ResponseEntity.status(404).body("Usuário não encontrado.");
+    }
+}
+
 }

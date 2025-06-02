@@ -1,0 +1,54 @@
+<div class="navBar">
+  <img id='imgLogo' src="fireLogo.png" alt="">
+  <div class="rightBar">
+    <button>Upload Image</button>
+    
+    <img id="userimg" *ngIf="user?.imgPath" [src]="'data:image/jpeg;base64,' + user.imgPath" alt="Imagem do autor"
+      width="50" />
+  </div>
+</div>
+
+<div class="p-4">
+  <h2>Perfil de {{ usuarioLogado }}</h2>
+  <div *ngIf="postsUsuario.length === 0">
+    <p>Você ainda não postou nenhuma arte.</p>
+  </div>
+<div class="bigContainer">
+  
+  <div class="myPost">
+    <div *ngFor="let post of postsUsuario">
+      <h4>{{ post.titulo }}</h4>
+      <div class="imgContainer">
+        <img *ngIf="post.imageUrl" [src]="post.imageUrl"  alt="Arte do usuário">
+      </div>
+      <div class="imageDelete">
+        <button (click)="deletarPost(post.id)" >
+          <img src="delete.png" alt="">
+        </button>
+      </div> 
+    </div>
+  </div>
+
+  <div class="senha-container">
+    <h2>Alterar Senha</h2>
+    <form (ngSubmit)="alterarSenha()" #formSenha="ngForm">
+      <div>
+        <label for="novaSenha">Nova Senha:</label>
+        <input
+          type="password"
+          id="novaSenha"
+          name="novaSenha"
+          required
+          [(ngModel)]="novaSenha"
+        />
+      </div>
+      <button type="submit" [disabled]="!formSenha.form.valid">Alterar Senha</button>
+    </form>
+  
+    <p *ngIf="mensagem">{{ mensagem }}</p>
+  </div>
+
+</div>
+
+  
+</div>

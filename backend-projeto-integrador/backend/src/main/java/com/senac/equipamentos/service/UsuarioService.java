@@ -21,14 +21,14 @@ public class UsuarioService {
         return usuario.isPresent();
     }
 
-    public boolean atualizarImagem(String username, String novoImgPath) {
-        Optional<Usuario> usuarioOptional = usuarioRepository.findByUsername(username);
-        if (usuarioOptional.isPresent()) {
-            Usuario usuario = usuarioOptional.get();
-            usuario.setImgPath(novoImgPath);
-            usuarioRepository.save(usuario);
-            return true;
-        }
-        return false;
-    }
+    // public boolean atualizarImagem(String username, String novoImgPath) {
+    //     Optional<Usuario> usuarioOptional = usuarioRepository.findByUsername(username);
+    //     if (usuarioOptional.isPresent()) {
+    //         Usuario usuario = usuarioOptional.get();
+    //         usuario.setImgPath(novoImgPath);
+    //         usuarioRepository.save(usuario);
+    //         return true;
+    //     }
+    //     return false;
+    // }
 }

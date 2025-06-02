@@ -1,0 +1,30 @@
+<div class="rootC">
+  <div class="leftDiv">
+    <img src="leftimg2.jpg" alt="">
+  </div>
+
+  <div class="rightDiv">
+    <div class="rightContent">
+      <img src="LogoOutline.png" alt="Logo" style="width: 300px; height: auto; margin-bottom: 20px;">
+
+      <form (ngSubmit)="fazerLogin()">
+        <label>
+          <p>Usuário:</p>
+          <input type="text" [(ngModel)]="username" name="username" required />
+        </label>
+        <br />
+        <label>
+          <p>Senha:</p>
+          <input type="password" [(ngModel)]="password" name="password" required />
+        </label>
+        <br />
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+    <div *ngIf="erroLogin" style="color: red;">
+      Usuário ou senha inválidos.
+    </div>
+
+  </div>
+
+</div>

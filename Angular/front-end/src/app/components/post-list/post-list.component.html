@@ -1,0 +1,49 @@
+<div *ngFor="let post of posts" class="post">  
+  
+  <div class="postBody">
+    
+    <div class="top">
+      <img id='userpostimg'*ngIf="post.usuarioData?.imgPath" [src]="'data:image/jpeg;base64,' + post.usuarioData.imgPath" alt="Imagem do autor" width="50"/>
+      <div class="div">
+        <p id="titulo">{{ post.titulo }}</p>
+        <p><strong>Autor:</strong> {{ post.username }}</p>
+      </div>
+    </div>  
+    
+    <div class="postDiv">      
+      <img *ngIf="post.imageUrl" [src]="post.imageUrl" alt="Imagem do post" width="300" />      
+      <div class="underimg">      
+        <button (click)="curtir(post)"><img src="like-remove.png" width="30"></button>
+        <p><strong>Comentários ({{ post.comments?.length || 0 }})</strong></p>
+        <p><strong>Likes:</strong> {{ post.likes }}</p>      
+      </div>    
+    </div>
+  
+  </div>
+
+
+  <div class="commentSection">
+
+    <div class="comments-container">
+      <div *ngFor="let c of post.comments" class="comment">    
+        <p><strong>{{ c.usuario }}:</strong> {{ c.texto }}</p> 
+      </div>
+    </div>
+
+    <form (submit)="comentar(post, comentarioTextMap[post.id]); $event.preventDefault()">
+      
+      <input
+        type="text"
+        [(ngModel)]="comentarioTextMap[post.id]"
+        name="comentario{{post.id}}"
+        placeholder="Escreva um comentário..."
+      />
+      
+      <button type="submit">Enviar</button>
+    
+    </form>
+
+  </div> 
+
+</div>
+  

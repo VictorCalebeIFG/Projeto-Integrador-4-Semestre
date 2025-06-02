@@ -5,5 +5,5 @@ import com.senac.equipamentos.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     Optional<Usuario> findByUsernameAndPassword(String username, String password);
-    Optional<Usuario> findByUsername(String username);
+    Usuario findByUsername(String username);
 }

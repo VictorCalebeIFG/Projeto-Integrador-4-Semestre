@@ -15,12 +15,12 @@ public class Usuario {
     @Column(nullable = false)
     private String password;
 
-    @Column
-    private String imgPath; // Pode ser nulo
+    @Lob
+    private byte[] imgPath;
 
     public Usuario() {}
 
-    public Usuario(String username, String password, String imgPath) {
+    public Usuario(String username, String password, byte[] imgPath) {
         this.username = username;
         this.password = password;
         this.imgPath = imgPath;
@@ -38,7 +38,7 @@ public class Usuario {
         return password;
     }
 
-    public String getImgPath() {
+    public byte[] getImgPath() {
         return imgPath;
     }
 
@@ -50,7 +50,7 @@ public class Usuario {
         this.password = password;
     }
 
-    public void setImgPath(String imgPath) {
+    public void setImgPath(byte[] imgPath) {
         this.imgPath = imgPath;
     }
 }

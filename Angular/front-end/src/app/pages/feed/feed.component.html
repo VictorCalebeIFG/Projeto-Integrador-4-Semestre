@@ -1,0 +1,54 @@
+<div class="navBar">
+    <!-- <button (click)="irParaPerfil()">Ir para perfil</button> -->
+    <img id = 'imgLogo' src="fireLogo.png" alt="">
+    <div class="rightBar">
+        
+        <button (click)="toggleDropdown()">Upload Image</button>
+        
+        <div *ngIf="dropdownVisivel" class="dropdown-container">
+            <app-upload></app-upload>
+        </div>
+        
+        <img (click)="irParaPerfil()" id="userimg" *ngIf="user?.imgPath" [src]="'data:image/jpeg;base64,' + user.imgPath" alt="Imagem do autor" width="50"/>
+    </div>          
+</div>
+
+<div class="uderbar">
+    <div class="userdesc">
+        <img (click)="irParaPerfil()" id="userimg" *ngIf="user?.imgPath" [src]="'data:image/jpeg;base64,' + user.imgPath" alt="Imagem do autor" width="50"/>
+        <h2>{{ username || 'usuário' }}</h2>
+        <hr style="width: 130%; height: 1px; background-color: #ccc; margin: 10px ;">
+        <div *ngIf="userEstatistica" class="estatisticas-grid">
+            <div class="estatistica-item">
+                <img src="heart.png" alt="">
+                <div class="data">
+                    <h4>{{ userEstatistica.totalLikes }}</h4>
+                    <p>Curtidas</p>
+                </div>              
+            </div>
+            <div class="estatistica-item">
+                <img src="Coment.png" alt="">
+                <div class="data">
+                    <h4>{{ userEstatistica.totalComentarios }}</h4>
+                    <p>Engajamento</p>
+                </div>              
+            </div>
+            <div class="estatistica-item">
+                <img src="pen.png" alt="">
+                <div class="data">
+                    <h4>{{ userEstatistica.totalPosts }}</h4>
+                    <p>Posts</p>
+                </div>
+              
+            </div>
+          </div>
+
+    </div>
+    
+
+    <app-post-list></app-post-list>
+</div>
+
+
+
+

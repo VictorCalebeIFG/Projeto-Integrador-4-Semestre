@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()">
+  <h2>Criar Post</h2>
+  <label>Título:</label>
+  <input type="text" [(ngModel)]="titulo" name="titulo"><br>
+
+  
+  <!-- <input type="file" (change)="onFileSelected($event)"><br><br> -->
+  <input type="file" id="upload" class="file-input" (change)="onFileSelected($event)" />
+  <label for="upload" class="file-label">
+    <img src="uploadimage.png" alt="Selecionar Arquivo">
+  </label>
+  <br>
+
+  <button type="submit">Criar Post</button>
+</form>
